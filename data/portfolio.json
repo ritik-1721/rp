@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "title": "Ritik Pawar — Full-Stack Developer",
+    "description": "Full-Stack Developer with 4+ years of experience building scalable applications with React.js, Node.js, and TypeScript. Specializing in microservices architecture, cloud deployments, and performance optimization.",
+    "ogImage": "/images/og-image.png",
+    "siteUrl": "https://ritikpawar.dev",
+    "resumeUrl": "/resume.pdf"
+  },
+  "hero": {
+    "greeting": "Hello I'm",
+    "name": "Ritik Pawar.",
+    "title": "Full-Stack Developer.",
+    "tagline": "4+ years crafting scalable full-stack applications — from microservices and cloud infrastructure to polished user interfaces. I turn complex systems into elegant, high-performance products.",
+    "ctaPrimary": {
+      "label": "View Work",
+      "href": "#work"
+    },
+    "ctaSecondary": {
+      "label": "Let's Talk",
+      "href": "#contact"
+    }
+  },
+  "about": {
+    "bio": "Based in Bengaluru, India, I am a Full-Stack Developer with 4+ years of hands-on experience engineering scalable products across billing, healthcare, education, and fintech domains. I specialize in bridging robust backend systems with intuitive frontends — always optimizing for performance, security, and developer experience. I've led teams, architected microservices, and shipped features used by thousands of real users.",
+    "email": "ritikrppawar21@gmail.com",
+    "phone": "+91-8305187639",
+    "location": "Bengaluru, India",
+    "availability": true,
+    "availabilityLabel": "Open to opportunities",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Microservices",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "AWS (EC2/S3)",
+      "GitHub Actions",
+      "CI/CD",
+      "JWT / OAuth",
+      "PHP",
+      "Tailwind CSS",
+      "MUI"
+    ]
+  },
+  "techStack": [
+    {
+      "name": "React.js",
+      "icon": "react",
+      "category": "Frontend",
+      "index": "01"
+    },
+    {
+      "name": "Next.js",
+      "icon": "code",
+      "category": "Frontend",
+      "index": "02"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "braces",
+      "category": "Language",
+      "index": "03"
+    },
+    {
+      "name": "Node.js",
+      "icon": "terminal",
+      "category": "Backend",
+      "index": "04"
+    },
+    {
+      "name": "SQL",
+      "icon": "database",
+      "category": "Database",
+      "index": "05"
+    },
+    {
+      "name": "Docker",
+      "icon": "box",
+      "category": "DevOps",
+      "index": "06"
+    },
+    {
+      "name": "AWS",
+      "icon": "cloud",
+      "category": "DevOps",
+      "index": "07"
+    },
+    {
+      "name": "Redis",
+      "icon": "server",
+      "category": "Database",
+      "index": "08"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "Jan 2024 — Present",
+      "role": "Full-Stack Developer",
+      "company": "Octopi Labs India Pvt. Ltd.",
+      "companyUrl": "https://octopi-labs.com/en",
+      "location": "Bangalore, India",
+      "description": "Architected scalable REST APIs and full-stack applications for billing, rental, and wallet systems. Deployed and managed infrastructure on AWS (EC2, S3), implemented CI/CD pipelines with GitHub Actions, and optimized performance through lazy loading and caching — reducing load time by 30% and API latency by 20%. Enforced authentication and authorization using JWT and OAuth across all services.",
+      "type": "work"
+    },
+    {
+      "year": "Jan 2022 — Jan 2024",
+      "role": "Software Engineer",
+      "company": "SynQues Consultancy Pvt. Ltd.",
+      "companyUrl": "https://www.synques.in",
+      "location": "Bhopal, India",
+      "description": "Built and maintained education, e-commerce, and tender management platforms. Improved REST API performance by 30%, integrated payment gateways (Razorpay, Atom, Propay) and social auth (Google, Facebook). Managed MySQL databases with query optimization, and deployed on Linux/Apache. Mentored interns and improved team productivity by 25%.",
+      "type": "work"
+    },
+    {
+      "year": "Oct 2021 — Dec 2021",
+      "role": "Software Engineer Intern",
+      "company": "SynQues Consultancy Pvt. Ltd.",
+      "companyUrl": "https://www.synques.in",
+      "location": "Bhopal, India",
+      "description": "Built a quiz application for Saar Education using CodeIgniter and jQuery. Conducted manual testing to improve software quality and user-facing reliability.",
+      "type": "work"
+    },
+    {
+      "year": "2021 — 2024",
+      "role": "B.Tech — Computer Science & Engineering",
+      "company": "Millennium Institute of Technology and Science",
+      "companyUrl": "",
+      "location": "Bhopal, MP, India",
+      "description": "Bachelor of Technology in Computer Science and Engineering. Graduated with a strong foundation in data structures, algorithms, distributed systems, and software engineering principles.",
+      "type": "education"
+    },
+    {
+      "year": "2018 — 2021",
+      "role": "Diploma — Computer Science & Engineering",
+      "company": "Government Polytechnic College",
+      "companyUrl": "",
+      "location": "Betul, MP, India",
+      "description": "Diploma in Computer Science and Engineering. Developed foundational programming and systems knowledge that fueled early professional growth.",
+      "type": "education"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Gasolina — Payment & Rewards Ecosystem",
+      "description": "A fuel payment platform built for South Africa, featuring wallet recharge, QR-based secure payments, loyalty programs, EMS sync, and real-time dashboards with multi-level user management.",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "MySQL",
+        "AWS S3",
+        "Redis",
+        "Docker",
+        "Spring Boot",
+        "JWT"
+      ],
+      "liveUrl": "https://gasolinasa.com",
+      "githubUrl": "",
+      "image": "/images/project-gasolina.png"
+    },
+    {
+      "title": "Coremax — Medical Billing & Clinic Management",
+      "description": "A comprehensive clinic management system with appointment scheduling, insurance management, secure role-based access, real-time alerts, analytics dashboards, and backend-driven reporting.",
+      "tags": [
+        "React.js",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "Docker",
+        "Firebase",
+        "REST APIs"
+      ],
+      "liveUrl": "https://universalsa.com",
+      "githubUrl": "",
+      "image": "/images/project-coremax.png"
+    },
+    {
+      "title": "Billabong High — School Management System",
+      "description": "Full school management platform covering academics, transport, and administration. Features real-time bus tracking, EMS modules, multi-role login (staff, students, parents), and live dashboards.",
+      "tags": [
+        "CodeIgniter",
+        "PHP",
+        "MySQL",
+        "jQuery",
+        "Bootstrap",
+        "Firebase",
+        "REST APIs"
+      ],
+      "liveUrl": "https://www.billabonghighbhopal.com",
+      "githubUrl": "",
+      "image": "/images/project-billabong.png"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "React — The Complete Guide 2023 (incl. React Router & Redux)",
+      "issuer": "Udemy",
+      "issued": "July 2023",
+      "credentialId": "UC-7fd335b1-4a32-4ea1-ad64-4c73cf2465b6"
+    },
+    {
+      "title": "The Complete 2023 Web Development Bootcamp",
+      "issuer": "Udemy",
+      "issued": "August 2023",
+      "credentialId": "UC-425e6043-26a0-4e94-a7f1-e239062512ef"
+    }
+  ],
+  "contact": {
+    "headline": "Let's work together",
+    "subtext": "Open to full-time roles, freelance projects, and technical consultation. Reach out if you have a product that needs a developer who cares about both quality and delivery.",
+    "email": "ritikrppawar21@gmail.com",
+    "socialLinks": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/ritik-1721",
+        "label": "GITHUB"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/pawar-ritik",
+        "label": "LINKEDIN"
+      }
+    ]
+  }
+}
