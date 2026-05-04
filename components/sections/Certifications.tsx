@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { IconCertificate, IconExternalLink } from '@tabler/icons-react';
+import { IconCertificate } from '@tabler/icons-react';
 import type { Certification } from '@/types/portfolio';
 
 interface CertificationsProps {
