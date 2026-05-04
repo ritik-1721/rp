@@ -78,7 +78,7 @@ export default function Contact({ data }: ContactProps) {
           >
             <h2 className="font-sans font-black text-[clamp(2.5rem,5vw,4rem)] uppercase leading-[0.95] tracking-tighter">
               {data.headline.split(' ').map((word, i) => (
-                <span key={i} className="block gradient-text-moving">
+                <span key={i} className="block">
                   {word}
                 </span>
               ))}
@@ -150,11 +150,10 @@ export default function Contact({ data }: ContactProps) {
                     type="text"
                     placeholder="John Doe"
                     autoComplete="name"
-                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${
-                      errors.name
+                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${errors.name
                         ? 'border-red-500 focus:border-red-400'
                         : 'border-zinc-700 focus:border-white'
-                    }`}
+                      }`}
                     aria-describedby={errors.name ? 'name-error' : undefined}
                     {...register('name', { required: 'Name is required' })}
                   />
@@ -178,11 +177,10 @@ export default function Contact({ data }: ContactProps) {
                     type="email"
                     placeholder="john@example.com"
                     autoComplete="email"
-                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${
-                      errors.email
+                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${errors.email
                         ? 'border-red-500 focus:border-red-400'
                         : 'border-zinc-700 focus:border-white'
-                    }`}
+                      }`}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     {...register('email', {
                       required: 'Email is required',
@@ -208,11 +206,10 @@ export default function Contact({ data }: ContactProps) {
                     id="contact-brief"
                     placeholder="Tell me about your project"
                     rows={4}
-                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 resize-none transition-colors ${
-                      errors.brief
+                    className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 resize-none transition-colors ${errors.brief
                         ? 'border-red-500 focus:border-red-400'
                         : 'border-zinc-700 focus:border-white'
-                    }`}
+                      }`}
                     aria-describedby={errors.brief ? 'brief-error' : undefined}
                     {...register('brief', { required: 'Please describe your project' })}
                   />
