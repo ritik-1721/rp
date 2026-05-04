@@ -1,18 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import type { Hero as HeroType } from '@/types/portfolio';
 
 interface HeroProps {
   data: HeroType;
 }
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
 };
 
-const wordReveal = {
+const wordReveal: Variants = {
   hidden: { opacity: 0, y: 40, skewY: 3 },
   show: {
     opacity: 1, y: 0, skewY: 0,
@@ -20,7 +20,7 @@ const wordReveal = {
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };

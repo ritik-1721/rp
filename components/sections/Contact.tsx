@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import type { Contact as ContactType } from '@/types/portfolio';
 
@@ -15,7 +15,7 @@ interface FormData {
   brief: string;
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
     opacity: 1,
@@ -28,7 +28,7 @@ const fadeUp = {
   }),
 };
 
-const slideIn = {
+const slideIn: Variants = {
   hidden: { opacity: 0, x: 40 },
   show: {
     opacity: 1,
@@ -127,7 +127,7 @@ export default function Contact({ data }: ContactProps) {
                   Message Received
                 </p>
                 <p className="font-sans text-zinc-400 text-body-md">
-                  I'll get back to you within 24 hours.
+                  I&apos;ll get back to you within 24 hours.
                 </p>
               </div>
             ) : (

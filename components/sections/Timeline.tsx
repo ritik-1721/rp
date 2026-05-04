@@ -1,14 +1,14 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import type { TimelineEntry } from '@/types/portfolio';
 
 interface TimelineProps {
   data: TimelineEntry[];
 }
 
-const entryVariant = {
+const entryVariant: Variants = {
   hidden: { opacity: 0, x: -20 },
   show: (i: number) => ({
     opacity: 1,
@@ -21,12 +21,12 @@ const entryVariant = {
   }),
 };
 
-const headingVariant = {
+const headingVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-const lineVariant = {
+const lineVariant: Variants = {
   hidden: { scaleY: 0 },
   show: {
     scaleY: 1,

@@ -10,8 +10,8 @@ function mv(
   inputs: MotionValue<number>[],
   fn: (vals: number[]) => number
 ): MotionValue<number> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  return useTransform(inputs as Parameters<typeof useTransform>[0], fn);
+  // eslint-disable-next-line react-hooks/rules-of-hooks, @typescript-eslint/no-explicit-any
+  return useTransform(inputs, fn as any) as unknown as MotionValue<number>;
 }
 
 export default function CustomCursor() {

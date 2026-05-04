@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import {
   IconCode, IconTerminal, IconBraces, IconDatabase,
   IconBox, IconCloud, IconGitBranch, IconLayout,
@@ -26,7 +26,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   react: IconBrandReact,
 };
 
-const cardVariant = {
+const cardVariant: Variants = {
   hidden: { opacity: 0, scale: 0.94 },
   show: (i: number) => ({
     opacity: 1, scale: 1,
@@ -34,7 +34,7 @@ const cardVariant = {
   }),
 };
 
-const headingVariant = {
+const headingVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };

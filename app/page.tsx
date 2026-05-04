@@ -1,5 +1,8 @@
-import portfolioData from '@/data/portfolio.json';
+import rawPortfolioData from '@/data/portfolio.json';
+import type { PortfolioData } from '@/types/portfolio';
 import Hero from '@/components/sections/Hero';
+
+const portfolioData = rawPortfolioData as PortfolioData;
 import About from '@/components/sections/About';
 import TechStack from '@/components/sections/TechStack';
 import Timeline from '@/components/sections/Timeline';

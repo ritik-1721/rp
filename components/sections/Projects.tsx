@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { IconExternalLink, IconBrandGithub, IconLock } from '@tabler/icons-react';
 import type { Project } from '@/types/portfolio';
@@ -10,7 +10,7 @@ interface ProjectsProps {
   data: Project[];
 }
 
-const cardVariant = {
+const cardVariant: Variants = {
   hidden: { opacity: 0, y: 32 },
   show: (i: number) => ({
     opacity: 1,
@@ -23,7 +23,7 @@ const cardVariant = {
   }),
 };
 
-const headingVariant = {
+const headingVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };

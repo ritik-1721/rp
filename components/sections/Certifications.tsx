@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { IconCertificate } from '@tabler/icons-react';
 import type { Certification } from '@/types/portfolio';
 
@@ -9,7 +9,7 @@ interface CertificationsProps {
   data: Certification[];
 }
 
-const cardVariant = {
+const cardVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: (i: number) => ({
     opacity: 1,
@@ -18,7 +18,7 @@ const cardVariant = {
   }),
 };
 
-const headingVariant = {
+const headingVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };

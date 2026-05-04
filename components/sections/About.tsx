@@ -1,14 +1,14 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import type { About as AboutType } from '@/types/portfolio';
 
 interface AboutProps {
   data: AboutType;
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
@@ -17,7 +17,7 @@ const fadeUp = {
   },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
 };

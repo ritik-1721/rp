@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface AnimatedTextProps {
@@ -21,7 +21,7 @@ export default function AnimatedText({
   const tokens = mode === 'word' ? text.split(' ') : text.split('');
   const gap = mode === 'word' ? ' ' : '';
 
-  const container = {
+  const container: Variants = {
     hidden: {},
     show: {
       transition: {
@@ -31,7 +31,7 @@ export default function AnimatedText({
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 20, skewY: 1 },
     show: {
       opacity: 1,
