@@ -32,12 +32,6 @@ const STATS = [
   { value: '30%', label: 'Avg. Perf. Gain' },
 ];
 
-const MARQUEE_ITEMS = [
-  'React.js', '·', 'Node.js', '·', 'TypeScript', '·',
-  'AWS', '·', 'Docker', '·', 'PostgreSQL', '·',
-  'Next.js', '·', 'CI/CD', '·', 'Microservices', '·',
-  'REST APIs', '·', 'Redis', '·', 'GitHub Actions', '·',
-];
 
 function AnimatedWords({ text, className }: { text: string; className?: string }) {
   return (
