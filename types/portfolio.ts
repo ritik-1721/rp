@@ -72,6 +72,8 @@ export interface Contact {
   headline: string;
   subtext: string;
   email: string;
+  phone?: string;
+  location?: string;
   socialLinks: SocialLink[];
 }
 

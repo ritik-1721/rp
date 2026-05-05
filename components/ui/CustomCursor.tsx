@@ -1,24 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
-
-const CURSOR_LINE_COLOR = 'rgba(255,255,255,0.45)';
-
-/** Shorthand for multi-input useTransform */
-function mv(
-  inputs: MotionValue<number>[],
-  fn: (vals: number[]) => number
-): MotionValue<number> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks, @typescript-eslint/no-explicit-any
-  return useTransform(inputs, fn as any) as unknown as MotionValue<number>;
-}
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [visible,  setVisible]  = useState(false);
+  const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
-  const [onInput,  setOnInput]  = useState(false);
+  const [onInput, setOnInput] = useState(false);
 
   const mouseX = useMotionValue(-300);
   const mouseY = useMotionValue(-300);
@@ -40,26 +29,6 @@ export default function CustomCursor() {
     innerBorderSizeMV.set((clicking ? 5 : 8) + 4);
   }, [clicking, hovering, outerSizeMV, innerBorderSizeMV]);
 
-  // ── Outer box 4 corners ───────────────────────────────────────
-  const oTLX = mv([outerX, outerSizeMV], ([x, s]) => x - s / 2);
-  const oTLY = mv([outerY, outerSizeMV], ([y, s]) => y - s / 2);
-  const oTRX = mv([outerX, outerSizeMV], ([x, s]) => x + s / 2);
-  const oTRY = mv([outerY, outerSizeMV], ([y, s]) => y - s / 2);
-  const oBLX = mv([outerX, outerSizeMV], ([x, s]) => x - s / 2);
-  const oBLY = mv([outerY, outerSizeMV], ([y, s]) => y + s / 2);
-  const oBRX = mv([outerX, outerSizeMV], ([x, s]) => x + s / 2);
-  const oBRY = mv([outerY, outerSizeMV], ([y, s]) => y + s / 2);
-
-  // ── Inner border box 4 corners ────────────────────────────────
-  const iTLX = mv([innerX, innerBorderSizeMV], ([x, s]) => x - s / 2);
-  const iTLY = mv([innerY, innerBorderSizeMV], ([y, s]) => y - s / 2);
-  const iTRX = mv([innerX, innerBorderSizeMV], ([x, s]) => x + s / 2);
-  const iTRY = mv([innerY, innerBorderSizeMV], ([y, s]) => y - s / 2);
-  const iBLX = mv([innerX, innerBorderSizeMV], ([x, s]) => x - s / 2);
-  const iBLY = mv([innerY, innerBorderSizeMV], ([y, s]) => y + s / 2);
-  const iBRX = mv([innerX, innerBorderSizeMV], ([x, s]) => x + s / 2);
-  const iBRY = mv([innerY, innerBorderSizeMV], ([y, s]) => y + s / 2);
-
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (window.matchMedia('(hover: none)').matches) return;
@@ -71,9 +40,9 @@ export default function CustomCursor() {
     };
     const onLeave = () => setVisible(false);
     const onEnter = () => setVisible(true);
-    const onDown  = () => setClicking(true);
-    const onUp    = () => setClicking(false);
-    const onOver  = (e: Event) => {
+    const onDown = () => setClicking(true);
+    const onUp = () => setClicking(false);
+    const onOver = (e: Event) => {
       const el = (e.target as HTMLElement).closest(
         'a, button, [role="button"], input, textarea, select, label'
       );
@@ -112,9 +81,9 @@ export default function CustomCursor() {
     };
   }, [mouseX, mouseY]);
 
-  const outerSize   = clicking ? 20 : hovering ? 52 : 32;
+  const outerSize = clicking ? 20 : hovering ? 52 : 32;
   const outerOffset = outerSize / 2;
-  const innerSize   = clicking ? 5 : 8;
+  const innerSize = clicking ? 5 : 8;
   const innerBorderSize = innerSize + 4;
 
   // ── Text cursor (I-beam) mode ──────────────────────────────────
@@ -164,46 +133,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* ─────────────────────────────────────────────────────────
-          SVG: 4 light-white lines — each corner of outer → inner box
-          Both boxes move via springs → lines are naturally smooth
-      ───────────────────────────────────────────────────────── */}
-      <svg
-        style={{
-          position: 'fixed', inset: 0,
-          width: '100vw', height: '100vh',
-          pointerEvents: 'none',
-          zIndex: 9996,
-          overflow: 'visible',
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.15s ease',
-        }}
-      >
-        {/* TL corner */}
-        <motion.line
-          x1={oTLX} y1={oTLY}
-          x2={iTLX} y2={iTLY}
-          stroke={CURSOR_LINE_COLOR} strokeWidth="1.2" strokeLinecap="round"
-        />
-        {/* TR corner */}
-        <motion.line
-          x1={oTRX} y1={oTRY}
-          x2={iTRX} y2={iTRY}
-          stroke={CURSOR_LINE_COLOR} strokeWidth="1.2" strokeLinecap="round"
-        />
-        {/* BL corner */}
-        <motion.line
-          x1={oBLX} y1={oBLY}
-          x2={iBLX} y2={iBLY}
-          stroke={CURSOR_LINE_COLOR} strokeWidth="1.2" strokeLinecap="round"
-        />
-        {/* BR corner */}
-        <motion.line
-          x1={oBRX} y1={oBRY}
-          x2={iBRX} y2={iBRY}
-          stroke={CURSOR_LINE_COLOR} strokeWidth="1.2" strokeLinecap="round"
-        />
-      </svg>
+
 
       {/* ─────────────────────────────────────────────────────────
           Outer trailing square — mix-blend: difference → auto-inverts
@@ -220,15 +150,15 @@ export default function CustomCursor() {
           border: '1.5px solid #FFFFFF',
         }}
         animate={{
-          width:   outerSize,
-          height:  outerSize,
+          width: outerSize,
+          height: outerSize,
           opacity: visible ? 1 : 0,
-          rotate:  hovering ? 45 : 0,
+          rotate: hovering ? 45 : 0,
         }}
         transition={{
-          width:   { duration: 0.22, ease: 'easeOut' },
-          height:  { duration: 0.22, ease: 'easeOut' },
-          rotate:  { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+          width: { duration: 0.22, ease: 'easeOut' },
+          height: { duration: 0.22, ease: 'easeOut' },
+          rotate: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
           opacity: { duration: 0.15 },
         }}
       />
@@ -241,7 +171,7 @@ export default function CustomCursor() {
           position: 'fixed', top: 0, left: 0,
           x: innerX, y: innerY,
           translateX: '-50%', translateY: '-50%',
-          width:  innerBorderSize,
+          width: innerBorderSize,
           height: innerBorderSize,
           border: `1.5px solid rgba(255,255,255,0.45)`,
           pointerEvents: 'none',
@@ -259,7 +189,7 @@ export default function CustomCursor() {
           position: 'fixed', top: 0, left: 0,
           x: innerX, y: innerY,
           translateX: '-50%', translateY: '-50%',
-          width:  innerSize,
+          width: innerSize,
           height: innerSize,
           backgroundColor: '#FFFFFF',
           mixBlendMode: 'difference',

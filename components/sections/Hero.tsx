@@ -96,7 +96,7 @@ export default function Hero({ data }: HeroProps) {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
               <span className="font-sans text-xs uppercase tracking-widest font-semibold text-green-700 dark:text-green-400 leading-none">
-                Open to opportunities
+                Open for opportunities
               </span>
             </div>
             <span className="font-sans text-xs text-muted uppercase tracking-widest hidden sm:inline-flex items-center gap-1.5 leading-none">
@@ -173,24 +173,7 @@ export default function Hero({ data }: HeroProps) {
         </motion.div>
       </div>
 
-      {/* ── Scrolling marquee strip ── */}
-      <div
-        className="border-t border-black/10 dark:border-white/10 py-4 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="marquee-track">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span
-              key={i}
-              className={`font-sans text-xs uppercase tracking-widest font-semibold px-4 whitespace-nowrap ${
-                item === '·' ? 'text-black/20 dark:text-white/20' : 'text-muted'
-              }`}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+
     </section>
   );
 }

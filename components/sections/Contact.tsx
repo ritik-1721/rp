@@ -50,12 +50,36 @@ export default function Contact({ data }: ContactProps) {
   } = useForm<FormData>();
 
   const onSubmit = async (formData: FormData) => {
-    // Simulate network request
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      // EmailJS REST API — no npm package required, works directly via fetch
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+          template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.brief,
+            to_email: 'ritikrppawar21@gmail.com',
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      console.log('Form submitted via EmailJS:', formData);
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('There was an error sending your message. Please try again later.');
+    }
   };
 
   return (
@@ -88,29 +112,29 @@ export default function Contact({ data }: ContactProps) {
               {data.subtext}
             </p>
 
-            {/* Email CTA */}
-            <a
-              href={`mailto:${data.email}`}
-              className="inline-block font-sans text-body-md border-b border-zinc-600 hover:border-white pb-1 transition-all text-zinc-300 hover:text-white"
-              aria-label={`Email ${data.email}`}
-            >
-              {data.email}
-            </a>
-
-            {/* Social Links */}
-            <div className="flex gap-8 pt-4">
-              {data.socialLinks.map((link) => (
+            {/* Contact Details */}
+            <div className="flex flex-col gap-4 items-start">
+              <a
+                href={`mailto:${data.email}`}
+                className="inline-block font-sans text-body-md border-b border-zinc-600 hover:border-white pb-1 transition-all text-zinc-300 hover:text-white"
+                aria-label={`Email ${data.email}`}
+              >
+                {data.email}
+              </a>
+              {data.phone && (
                 <a
-                  key={link.platform}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-xs font-semibold uppercase tracking-widest text-zinc-500 hover:text-white hover:line-through transition-all"
-                  aria-label={`${link.platform} profile`}
+                  href={`tel:${data.phone}`}
+                  className="inline-block font-sans text-body-md border-b border-zinc-600 hover:border-white pb-1 transition-all text-zinc-300 hover:text-white"
+                  aria-label={`Phone ${data.phone}`}
                 >
-                  {link.label}
+                  {data.phone}
                 </a>
-              ))}
+              )}
+              {data.location && (
+                <span className="font-sans text-body-md text-zinc-400 mt-2 block">
+                  {data.location}
+                </span>
+              )}
             </div>
           </motion.div>
 
@@ -151,8 +175,8 @@ export default function Contact({ data }: ContactProps) {
                     placeholder="John Doe"
                     autoComplete="name"
                     className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${errors.name
-                        ? 'border-red-500 focus:border-red-400'
-                        : 'border-zinc-700 focus:border-white'
+                      ? 'border-red-500 focus:border-red-400'
+                      : 'border-zinc-700 focus:border-white'
                       }`}
                     aria-describedby={errors.name ? 'name-error' : undefined}
                     {...register('name', { required: 'Name is required' })}
@@ -178,8 +202,8 @@ export default function Contact({ data }: ContactProps) {
                     placeholder="john@example.com"
                     autoComplete="email"
                     className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 transition-colors ${errors.email
-                        ? 'border-red-500 focus:border-red-400'
-                        : 'border-zinc-700 focus:border-white'
+                      ? 'border-red-500 focus:border-red-400'
+                      : 'border-zinc-700 focus:border-white'
                       }`}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     {...register('email', {
@@ -207,8 +231,8 @@ export default function Contact({ data }: ContactProps) {
                     placeholder="Tell me about your project"
                     rows={4}
                     className={`w-full bg-transparent border-b py-4 outline-none font-sans text-body-md placeholder:text-zinc-600 resize-none transition-colors ${errors.brief
-                        ? 'border-red-500 focus:border-red-400'
-                        : 'border-zinc-700 focus:border-white'
+                      ? 'border-red-500 focus:border-red-400'
+                      : 'border-zinc-700 focus:border-white'
                       }`}
                     aria-describedby={errors.brief ? 'brief-error' : undefined}
                     {...register('brief', { required: 'Please describe your project' })}

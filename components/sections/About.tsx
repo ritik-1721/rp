@@ -66,59 +66,6 @@ export default function About({ data }: AboutProps) {
             {data.bio}
           </p>
 
-          {/* Skills */}
-          <div className="space-y-4">
-            <span className="font-sans text-label-bold text-label-bold uppercase tracking-widest text-muted dark:text-zinc-500 block">
-              Core Skills
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {data.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="border border-black dark:border-white px-3 py-1 font-sans text-label-sm uppercase tracking-widest font-semibold text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact info grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-black dark:border-white">
-            <div>
-              <span className="font-sans text-label-bold text-label-bold text-muted dark:text-zinc-500 uppercase tracking-widest block mb-2">
-                Email
-              </span>
-              <a
-                href={`mailto:${data.email}`}
-                className="font-sans text-body-md text-black dark:text-white hover:underline transition-all"
-                aria-label={`Email ${data.email}`}
-              >
-                {data.email}
-              </a>
-            </div>
-
-            <div>
-              <span className="font-sans text-label-bold text-label-bold text-muted dark:text-zinc-500 uppercase tracking-widest block mb-2">
-                Phone
-              </span>
-              <a
-                href={`tel:${data.phone}`}
-                className="font-sans text-body-md text-black dark:text-white hover:underline"
-              >
-                {data.phone}
-              </a>
-            </div>
-
-            <div>
-              <span className="font-sans text-label-bold text-label-bold text-muted dark:text-zinc-500 uppercase tracking-widest block mb-2">
-                Location
-              </span>
-              <span className="font-sans text-body-md text-black dark:text-white">
-                {data.location}
-              </span>
-            </div>
-          </div>
         </motion.div>
       </motion.div>
     </section>

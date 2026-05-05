@@ -26,7 +26,7 @@
     "phone": "+91-8305187639",
     "location": "Bengaluru, India",
     "availability": true,
-    "availabilityLabel": "Open to opportunities",
+    "availabilityLabel": "Open for opportunities",
     "skills": [
       "React.js",
       "Next.js",
@@ -98,6 +98,30 @@
       "icon": "server",
       "category": "Database",
       "index": "08"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "database",
+      "category": "Database",
+      "index": "09"
+    },
+    {
+      "name": "Git & GitHub",
+      "icon": "git-branch",
+      "category": "DevOps",
+      "index": "10"
+    },
+    {
+      "name": "Redux",
+      "icon": "box",
+      "category": "Frontend",
+      "index": "11"
+    },
+    {
+      "name": "Postman",
+      "icon": "code",
+      "category": "Tools",
+      "index": "12"
     }
   ],
   "timeline": [
@@ -216,6 +240,8 @@
     "headline": "Let's work together",
     "subtext": "Open to full-time roles, freelance projects, and technical consultation. Reach out if you have a product that needs a developer who cares about both quality and delivery.",
     "email": "ritikrppawar21@gmail.com",
+    "phone": "+91-8305187639",
+    "location": "Bengaluru, India",
     "socialLinks": [
       {
         "platform": "GitHub",

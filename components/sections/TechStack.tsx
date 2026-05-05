@@ -51,7 +51,7 @@ export default function TechStack({ data }: TechStackProps) {
         animate={inView ? 'show' : 'hidden'}
         className="font-sans font-bold text-display-lg uppercase tracking-tighter text-black dark:text-white mb-16"
       >
-        Technical Architecture
+        Technical Skill
       </motion.h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
