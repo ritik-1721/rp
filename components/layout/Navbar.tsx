@@ -12,9 +12,9 @@ interface NavbarProps {
 }
 
 const NAV_LINKS = [
-  { label: 'WORK',    href: '#work'    },
-  { label: 'SKILLS',  href: '#skills'  },
-  { label: 'ABOUT',   href: '#about'   },
+  { label: 'WORK', href: '#work' },
+  { label: 'SKILLS', href: '#skills' },
+  { label: 'ABOUT', href: '#about' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
@@ -41,9 +41,9 @@ function LogoMark({ dark }: { dark: boolean }) {
 }
 
 export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: NavbarProps) {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
-  const [mounted,   setMounted]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -66,11 +66,10 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-black dark:border-white transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-black dark:border-white transition-all duration-300 ${scrolled
             ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm'
             : 'bg-white dark:bg-[#111111]'
-        }`}
+          }`}
         role="banner"
       >
         <div className="flex justify-between items-center w-full max-w-container mx-auto px-gutter h-16">
@@ -78,7 +77,7 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
           {/* ── Logo (bigger: 10×10 instead of 8×8) ── */}
           <Link href="/" aria-label="Home" className="flex items-center gap-2 group flex-shrink-0">
             <div className="h-11 w-11 transition-transform group-hover:scale-95 border border-black/10 dark:border-white/10">
-              {mounted ? <LogoMark dark={isDark} /> : <LogoMark dark={false} />}
+              {mounted ? <LogoMark dark={isDark} /> : <LogoMark dark={false} />}(dev)
             </div>
           </Link>
 
@@ -157,9 +156,8 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
 
       {/* ── Mobile full-screen overlay ── */}
       <div
-        className={`fixed inset-0 z-40 bg-white dark:bg-[#111111] flex flex-col pt-20 px-6 pb-12 transition-all duration-500 md:hidden ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-40 bg-white dark:bg-[#111111] flex flex-col pt-20 px-6 pb-12 transition-all duration-500 md:hidden ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
