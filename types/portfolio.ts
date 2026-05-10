@@ -3,6 +3,7 @@ export interface Meta {
   description: string;
   ogImage: string;
   siteUrl: string;
+  resumeUrl?: string;
 }
 
 export interface CtaLink {

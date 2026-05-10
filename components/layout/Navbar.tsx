@@ -67,8 +67,8 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 border-b border-black dark:border-white transition-all duration-300 ${scrolled
-            ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm'
-            : 'bg-white dark:bg-[#111111]'
+          ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm'
+          : 'bg-white dark:bg-[#111111]'
           }`}
         role="banner"
       >
@@ -77,7 +77,7 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
           {/* ── Logo (bigger: 10×10 instead of 8×8) ── */}
           <Link href="/" aria-label="Home" className="flex items-center gap-2 group flex-shrink-0">
             <div className="h-11 w-11 transition-transform group-hover:scale-95 border border-black/10 dark:border-white/10">
-              {mounted ? <LogoMark dark={isDark} /> : <LogoMark dark={false} />}(dev)
+              {mounted ? <LogoMark dark={isDark} /> : <LogoMark dark={false} />}
             </div>
           </Link>
 
@@ -103,10 +103,9 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              download
               className="hidden md:inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-widest px-4 py-2 border border-black dark:border-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-200"
               aria-label="View or download resume"
-              title="Download Résumé (PDF)"
+              title="View or Download Résumé"
             >
               <IconDownload size={12} stroke={2.5} />
               Résumé
@@ -179,8 +178,8 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            download
             className="text-left font-sans text-5xl font-bold uppercase tracking-tighter py-4 border-b border-black/10 dark:border-white/10 hover:pl-4 transition-all flex items-center gap-4"
+            aria-label="View or download resume"
             style={{ transitionDelay: `${NAV_LINKS.length * 60}ms` }}
           >
             Résumé
