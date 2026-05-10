@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
           {/* Square cursor — desktop only, hides on touch */}
           <CustomCursor />
-          <Navbar socialLinks={portfolioData.contact.socialLinks} resumeUrl={(portfolioData.meta as { resumeUrl?: string }).resumeUrl ?? '/resume.pdf'} />
+          <Navbar socialLinks={portfolioData.contact.socialLinks} resumeUrl={portfolioData.meta.resumeUrl ?? '/resume.pdf'} />
           <main id="main-content" tabIndex={-1}>
             {children}
           </main>

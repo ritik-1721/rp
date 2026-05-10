@@ -12,9 +12,9 @@ interface NavbarProps {
 }
 
 const NAV_LINKS = [
-  { label: 'WORK',    href: '#work'    },
-  { label: 'SKILLS',  href: '#skills'  },
-  { label: 'ABOUT',   href: '#about'   },
+  { label: 'WORK', href: '#work' },
+  { label: 'SKILLS', href: '#skills' },
+  { label: 'ABOUT', href: '#about' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
@@ -41,9 +41,9 @@ function LogoMark({ dark }: { dark: boolean }) {
 }
 
 export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: NavbarProps) {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
-  const [mounted,   setMounted]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -66,11 +66,10 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 border-b border-black dark:border-white transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm'
-            : 'bg-white dark:bg-[#111111]'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-black dark:border-white transition-all duration-300 ${scrolled
+          ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm'
+          : 'bg-white dark:bg-[#111111]'
+          }`}
         role="banner"
       >
         <div className="flex justify-between items-center w-full max-w-container mx-auto px-gutter h-16">
@@ -104,10 +103,9 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              download
               className="hidden md:inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-widest px-4 py-2 border border-black dark:border-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-200"
               aria-label="View or download resume"
-              title="Download Résumé (PDF)"
+              title="View or Download Résumé"
             >
               <IconDownload size={12} stroke={2.5} />
               Résumé
@@ -157,9 +155,8 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
 
       {/* ── Mobile full-screen overlay ── */}
       <div
-        className={`fixed inset-0 z-40 bg-white dark:bg-[#111111] flex flex-col pt-20 px-6 pb-12 transition-all duration-500 md:hidden ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-40 bg-white dark:bg-[#111111] flex flex-col pt-20 px-6 pb-12 transition-all duration-500 md:hidden ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
@@ -181,8 +178,8 @@ export default function Navbar({ socialLinks, resumeUrl = '/resume.pdf' }: Navba
             href={resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            download
             className="text-left font-sans text-5xl font-bold uppercase tracking-tighter py-4 border-b border-black/10 dark:border-white/10 hover:pl-4 transition-all flex items-center gap-4"
+            aria-label="View or download resume"
             style={{ transitionDelay: `${NAV_LINKS.length * 60}ms` }}
           >
             Résumé
